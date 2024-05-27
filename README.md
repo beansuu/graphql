@@ -3,7 +3,7 @@
 
 
 ### Usage 
-1. Clone the repo
+1. Clone the repo if you wish to run it locally otherwise find live-page in the next point.
    ```sh
    git clone https://01.kood.tech/git/mtalli/graphql.git
    ```
