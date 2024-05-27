@@ -2,7 +2,6 @@ export function showErrorNotification(message) {
     const notification = createNotificationElement(message, 'error-notification');
     animateNotification(notification);
 }
-
 function createNotificationElement(message, className) {
     const notification = document.createElement('div');
     notification.className = className;
@@ -10,7 +9,6 @@ function createNotificationElement(message, className) {
     document.body.appendChild(notification);
     return notification;
 }
-
 function animateNotification(notification) {
     notificationsQueue.push(notification);
     requestAnimationFrame(() => {
@@ -26,11 +24,9 @@ function animateNotification(notification) {
         }, 500);
     }, 5000);
 }
-
 function updateNotificationsPosition() {
     notificationsQueue.forEach((notif, index) => {
         notif.style.top = `${10 + 60 * index}px`;
     });
 }
-
 let notificationsQueue = [];

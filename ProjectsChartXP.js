@@ -1,7 +1,7 @@
 const svg = d3.select("#barChartSvg");
 const width = +svg.attr("width");
 const height = +svg.attr("height");
-const margin = {top: 20, right: 20, bottom: 60, left: 150};
+const margin = { top: 20, right: 20, bottom: 60, left: 150 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -9,7 +9,7 @@ const xValue = (d) => d.xp;
 const yValue = (d) => d.task;
 
 function render(data) {
-    const {xScale, yScale} = createScales(data);
+    const { xScale, yScale } = createScales(data);
 
     const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -38,7 +38,7 @@ function createScales(data) {
         .range([0, innerHeight])
         .padding(0.21);
 
-    return {xScale, yScale};
+    return { xScale, yScale };
 }
 
 function renderAxes(g, xScale, yScale) {
@@ -69,6 +69,7 @@ function renderBars(g, data, xScale, yScale) {
         .duration(800)
         .attr("width", d => xScale(xValue(d)));
 }
+
 
 
 async function extractProjectsWithXP(transactions) {

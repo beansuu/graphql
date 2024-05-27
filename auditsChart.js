@@ -1,7 +1,6 @@
-import {formatXP} from "/index.js";
-
+import { formatXP } from "/index.js";
 export function renderDonutChart(auditDone, auditReceived) {
-    const data = [{name: "Audits Done", value: auditDone}, {name: "Audits Received", value: auditReceived}];
+    const data = [{ name: "Audits Done", value: auditDone }, { name: "Audits Received", value: auditReceived }];
     const width = 450, height = 350, margin = 40;
     const radius = Math.min(width, height) / 2 - margin;
 

@@ -1,6 +1,6 @@
-import {makeGraph} from "/ProjectsChartXP.js";
-import {renderDonutChart} from "/auditsChart.js";
-import {showErrorNotification} from "/notifications.js";
+import { makeGraph } from "/ProjectsChartXP.js";
+import { renderDonutChart } from "/auditsChart.js";
+import { showErrorNotification } from "/notifications.js";
 
 let username = "";
 let password = "";
@@ -19,6 +19,10 @@ function loginPage() {
     const loginDiv = document.getElementById("loginDiv");
     loginDiv.className = "login";
 
+    /* 
+    creating login page elements
+    (type, className, textContent) using createElement/createInput respectively
+    */
     const loginHeader = createElement("h1", "title", "GraphQL");
     const loginForm = createElement("form");
     loginForm.id = 'loginForm';
@@ -173,18 +177,10 @@ function displayProgression(data) {
     for (let i = 0; i < data.length; i++) {
         if (!data[i].path.includes('piscine')) {
             switch (data[i].type) {
-                case 'xp':
-                    xp += data[i].amount;
-                    break;
-                case 'level':
-                    level = data[i].amount;
-                    break;
-                case 'up':
-                    up += data[i].amount;
-                    break;
-                case 'down':
-                    down += data[i].amount;
-                    break;
+                case 'xp': xp += data[i].amount; break;
+                case 'level': level = data[i].amount; break;
+                case 'up': up += data[i].amount; break;
+                case 'down': down += data[i].amount; break;
             }
         }
     }
@@ -239,7 +235,7 @@ async function getTransactions(headers) {
     const requestOptions = {
         method: "POST",
         headers: headers,
-        body: JSON.stringify({query: userQuery}),
+        body: JSON.stringify({ query: userQuery }),
     };
 
     const apiResponse = await fetch("https://01.kood.tech/api/graphql-engine/v1/graphql", requestOptions);
